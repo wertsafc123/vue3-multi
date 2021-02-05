@@ -1,0 +1,10 @@
+static
+test/unit/coverage
+.idea
+node_modules
+public/css/*.css
+public/js/*.*
+public/js/*.js.map
+npm-debug.log
+yarn-error.log
+dist
