@@ -2,9 +2,14 @@ const findEntries = require('./findEntries')
 const { VueLoaderPlugin } = require('vue-loader/dist/index')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const argv = require('yargs').argv
 
-const entry = findEntries('./src/pages', 'app.js')
-
+let entry = {}
+if (argv.page) {
+	entry[argv.page] = `./src/pages/${argv.page.replace('-', '/')}/app.js`
+} else {
+	entry = findEntries('./src/pages', 'app.js')
+}
 module.exports = {
 	mode: 'development',
 	entry,
